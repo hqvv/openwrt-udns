@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=udns
-PKG_VERSION:=0.2
+PKG_VERSION:=0.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://www.corpit.ru/mjt/udns
-PKG_MD5SUM:=3fdaaef5e0f2ad71624959add1b77995
+PKG_MD5SUM:=51e141b044b078d71ebb71f823959c1b
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -53,7 +53,8 @@ endef
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include/udns
-	$(CP) $(PKG_BUILD_DIR)/*.h $(1)/usr/include/udns
+	$(CP) $(PKG_BUILD_DIR)/udns.h $(1)/usr/include/udns
+	$(CP) $(PKG_BUILD_DIR)/udns.h $(1)/usr/include
 
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/lib*.{a,so*} $(1)/usr/lib
