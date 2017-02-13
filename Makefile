@@ -26,12 +26,16 @@ endef
 
 define Package/udns-libs
   $(call Package/udns/Default)
-  TITLE:=udns shared libraries
+  TITLE:=udns library, stub DNS resolver -  shared libraries 
+endef
+
+define Package/udns-libs/description
+The DNS library, udns, implements thread-safe stub DNS resolver functionality, which may be used both traditional, syncronous way and asyncronously, with application-supplied event loop.
 endef
 
 define Package/udns-utils
   $(call Package/udns/Default)
-  TITLE+= udns utils (all)
+  TITLE+= udns utils, stub DNS resolver (all)
 endef
 
 export BUILD_CC="$(TARGET_CC)"
