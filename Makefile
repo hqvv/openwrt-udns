@@ -24,12 +24,12 @@ define Package/udns/Default
   SUBMENU:=IP Addresses and Names
 endef
 
-define Package/udns-libs
+define Package/libudns
   $(call Package/udns/Default)
   TITLE:=udns library, stub DNS resolver -  shared libraries 
 endef
 
-define Package/udns-libs/description
+define Package/libudns/description
 The DNS library, udns, implements thread-safe stub DNS resolver functionality, which may be used both traditional, syncronous way and asyncronously, with application-supplied event loop.
 endef
 
@@ -64,7 +64,7 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/lib*.{a,so*} $(1)/usr/lib
 endef
 
-define Package/udns-libs/install
+define Package/libudns/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/lib*.so* $(1)/usr/lib
 endef
@@ -76,5 +76,5 @@ define Package/udns-utils/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/rblcheck $(1)/usr/bin/
 endef
 
-$(eval $(call BuildPackage,udns-libs))
+$(eval $(call BuildPackage,libudns))
 $(eval $(call BuildPackage,udns-utils))
